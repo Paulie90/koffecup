@@ -1,0 +1,32 @@
+.image-container {
+  display: flex;
+  flex-direction: column;
+  margin: 1em;
+
+  &--frame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    background-color: #CCCCCC;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    $animation-duration: 500ms;
+    $animation-type: ease-in;
+
+    -webkit-transition: background-image $animation-duration $animation-type;
+    -moz-transition: background-image $animation-duration $animation-type;
+    -o-transition: background-image $animation-duration $animation-type;
+    transition: background-image $animation-duration $animation-type;
+  }
+
+  &--title {
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

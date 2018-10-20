@@ -1,0 +1,5 @@
+<div class="images-list">
+  <div *ngFor="let image of imageList$ | async">
+    <app-image [image]="image"></app-image>
+  </div>
+</div>

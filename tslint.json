@@ -2,6 +2,10 @@
   "rulesDirectory": [
     "node_modules/codelyzer"
   ],
+  "extends": [
+    "rxjs-tslint-rules",
+    "angular-tslint-rules"
+  ],
   "rules": {
     "arrow-return-shorthand": true,
     "callable-types": true,
@@ -10,7 +14,7 @@
       true,
       "check-space"
     ],
-    "curly": true,
+    "curly": false,
     "deprecation": {
       "severity": "warn"
     },
@@ -31,6 +35,7 @@
       true,
       140
     ],
+    "trailing-comma": false,
     "member-access": false,
     "member-ordering": [
       true,
@@ -56,18 +61,15 @@
     "no-construct": true,
     "no-debugger": true,
     "no-duplicate-super": true,
-    "no-empty": false,
+    "no-empty": true,
     "no-empty-interface": true,
     "no-eval": true,
-    "no-inferrable-types": [
-      true,
-      "ignore-params"
-    ],
+    "no-null-keyword": false,
+    "no-inferrable-types": false,
     "no-misused-new": true,
     "no-non-null-assertion": true,
-    "no-redundant-jsdoc": true,
     "no-shadowed-variable": true,
-    "no-string-literal": false,
+    "no-string-literal": true,
     "no-string-throw": true,
     "no-switch-case-fall-through": true,
     "no-trailing-whitespace": true,
@@ -117,6 +119,10 @@
       "check-separator",
       "check-type"
     ],
+    "directive-class-suffix": true,
+    "no-any": true,
+    "i18n": false,
+    "newline-per-chained-call": false,
     "no-output-on-prefix": true,
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,
@@ -126,6 +132,13 @@
     "use-life-cycle-interface": true,
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
-    "directive-class-suffix": true
+    "rxjs-no-add": false,
+    "rxjs-no-wholesale": false,
+    "rxjs-no-operator": {
+      "severity": "error"
+    },
+    "rxjs-no-patched": {
+      "severity": "error"
+    }
   }
 }

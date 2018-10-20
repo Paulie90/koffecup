@@ -1,7 +1,22 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [];
+import { ImagesComponent } from './images/images.component';
+
+const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: '/images' },
+  {
+    path: 'images',
+    pathMatch: 'full',
+    component: ImagesComponent
+  },
+  {
+    path: 'images/:offset/:limit',
+    pathMatch: 'full',
+    component: ImagesComponent
+  },
+  { path: '**', redirectTo: '/images' }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

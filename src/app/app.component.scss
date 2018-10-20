@@ -1,0 +1,12 @@
+@import '../styles/variables.scss';
+
+.header {
+  height: 3em;
+  background: $primary;
+
+  .content-wrapper {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+}

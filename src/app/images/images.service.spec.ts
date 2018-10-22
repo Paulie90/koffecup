@@ -47,13 +47,23 @@ describe('Service: ImagesService', () => {
       }
     ];
 
-    it('should get the image list', () => {
+    it('should get the image list with default params', () => {
       service.getImages().subscribe((images: Array<ImageModel>) => {
         expect(images.length).toEqual(2);
       });
 
-      mockedRequest = httpTestingController.expectOne(`${url}?_start=0&_end=10`);
+      mockedRequest = httpTestingController.expectOne(`${url}?_start=0&_limit=10`);
+    });
 
+    it('should get the image list with defined offset and limit', () => {
+      service.getImages('5', '20').subscribe((images: Array<ImageModel>) => {
+        expect(images.length).toEqual(2);
+      });
+
+      mockedRequest = httpTestingController.expectOne(`${url}?_start=5&_limit=20`);
+    });
+
+    afterEach(() => {
       mockedRequest.flush(response);
       httpTestingController.verify();
     });

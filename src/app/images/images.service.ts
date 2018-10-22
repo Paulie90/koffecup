@@ -13,12 +13,10 @@ export class ImagesService {
   ) { }
 
   getImages(offset: string = '0', limit: string = '10'): Observable<Array<ImageModel>> {
-    const endParam = Number(offset) + Number(limit);
-
     return this.http.get<Array<ImageModel>>(this.IMAGE_URL, {
       params: {
         _start: offset,
-        _end: endParam.toString()
+        _limit: limit
       },
     });
   }

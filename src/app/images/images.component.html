@@ -1,5 +1,9 @@
+<form [formGroup]="imageForm" class="header--content--form">
+  Start from: <input formControlName="offset" />
+  Number of images: <input formControlName="limit" />
+</form>
 <div class="images-list">
-  <div *ngFor="let image of imageList$ | async">
+  <div *ngFor="let image of imageList$ | async; trackBy: image?.id">
     <app-image [image]="image"></app-image>
   </div>
 </div>

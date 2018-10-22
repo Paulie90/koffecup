@@ -133,12 +133,6 @@
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
     "rxjs-no-add": false,
-    "rxjs-no-wholesale": false,
-    "rxjs-no-operator": {
-      "severity": "error"
-    },
-    "rxjs-no-patched": {
-      "severity": "error"
-    }
+    "rxjs-no-wholesale": false
   }
 }

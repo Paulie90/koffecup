@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { ImagesComponent } from './images/images.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/images' },
   {
     path: 'images',

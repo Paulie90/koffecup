@@ -1,6 +1,5 @@
 <div class="image-container">
-  <div class="image-container--frame" [appImage]="image">
-    <div class="spinner"></div>
+  <div class="image-container--frame" appImage [imageURL]="image.url" [thumbnailURL]="image.thumbnailUrl" imageWidth="150">
   </div>
   <span class="image-container--title" [title]="image.title"> {{ image.title }}</span>
 </div>

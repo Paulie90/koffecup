@@ -54,4 +54,8 @@ export class ImagesComponent implements OnInit {
       limit
     });
   }
+
+  imageTrack(index, image): number {
+    return image ? image.id : null;
+  }
 }

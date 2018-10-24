@@ -4,6 +4,6 @@
 </form>
 <div class="images-list">
   <div *ngFor="let image of imageList$ | async; trackBy: imageTrack">
-    <app-image [image]="image"></app-image>
+    <app-image [image]="image" [scrollPositionEvent]="scrollPositionEvent"></app-image>
   </div>
 </div>

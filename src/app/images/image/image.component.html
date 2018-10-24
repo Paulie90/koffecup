@@ -1,5 +1,5 @@
 <div class="image-container">
-  <div class="image-container--frame" appImage [imageURL]="image.url" [thumbnailURL]="image.thumbnailUrl" imageWidth="150">
+  <div class="image-container--frame" appImage [imageURL]="image.url" [thumbnailURL]="image.thumbnailUrl" imageWidth="150" [scrollPositionEvent]="scrollPositionEvent">
   </div>
   <span class="image-container--title" [title]="image.title"> {{ image.title }}</span>
 </div>

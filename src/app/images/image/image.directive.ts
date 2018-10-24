@@ -1,13 +1,17 @@
-import { Directive, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, EventEmitter, Input, OnInit, Renderer2 } from '@angular/core';
+import { debounceTime, filter } from 'rxjs/operators';
 
 @Directive({
   selector: '[appImage]',
 })
 export class ImageDirective implements OnInit {
+  isLoaded: boolean;
+
   @Input() imageURL: string;
   @Input() thumbnailURL: string;
   @Input() imageWidth: number = 200;
-  @Input() imageHeight: number;
+  @Input() imageHeight?: number;
+  @Input() scrollPositionEvent?: EventEmitter<number>;
 
   constructor(
     private element: ElementRef,
@@ -36,6 +40,30 @@ export class ImageDirective implements OnInit {
       this.renderer.setStyle(directiveElement, 'background-image', `url(${imageHelperElement.src})`);
       this.renderer.setAttribute(spinnerElement, 'hidden', 'true');
     });
+
+    // load the image if it's in the viewport at the beginning
+    if (directiveElement.offsetTop < window.innerHeight) {
+      this.loadFullImage(imageHelperElement);
+    }
+
+    // Subscrbe to scroll event
+    if (this.scrollPositionEvent) {
+      this.scrollPositionEvent
+        .pipe(
+          filter(() => !this.isLoaded),
+          debounceTime(300)
+        ).subscribe(scrollPosition => {
+          const viewportBottomPosition = scrollPosition + window.innerHeight;
+
+          if (directiveElement.offsetTop < viewportBottomPosition) {
+            this.loadFullImage(imageHelperElement);
+          }
+        });
+    }
+  }
+
+  loadFullImage(imageHelperElement: HTMLImageElement): void {
     this.renderer.setAttribute(imageHelperElement, 'src', this.imageURL);
+    this.isLoaded = true;
   }
 }

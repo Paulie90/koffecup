@@ -27,8 +27,7 @@
     "express": "^4.16.4",
     "core-js": "^2.5.4",
     "rxjs": "~6.3.3",
-    "zone.js": "~0.8.26",
-    "typescript": "~3.1.1"
+    "zone.js": "~0.8.26"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.10.0",
@@ -40,6 +39,7 @@
     "@types/node": "~8.9.4",
     "angular-tslint-rules": "^1.5.0",
     "codelyzer": "~4.5.0",
+    "express": "^4.16.4",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~3.0.0",

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, HostListener, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
@@ -21,6 +21,7 @@ import { ImagesService } from './images.service';
 export class ImagesComponent implements OnInit {
   imageList$: Observable<Array<ImageModel>>;
   imageForm: FormGroup;
+  scrollPositionEvent: EventEmitter<number> = new EventEmitter<number>();
 
   constructor(
     private route: ActivatedRoute,
@@ -28,6 +29,10 @@ export class ImagesComponent implements OnInit {
     private formBuilder: FormBuilder,
     private imagesService: ImagesService
   ) { }
+
+  @HostListener('window:scroll', ['$event']) onScroll(event: UIEvent): void {
+    this.scrollPositionEvent.emit(window.pageYOffset);
+  }
 
   ngOnInit(): void {
     const routeParams = this.route.snapshot.params;

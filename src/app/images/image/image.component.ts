@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input } from '@angular/core';
 
 import { ImageModel } from '../images.model';
 
@@ -8,5 +8,6 @@ import { ImageModel } from '../images.model';
   styleUrls: ['./image.component.scss']
 })
 export class ImageComponent {
+  @Input() scrollPositionEvent: EventEmitter<number>;
   @Input() image: ImageModel;
 }
